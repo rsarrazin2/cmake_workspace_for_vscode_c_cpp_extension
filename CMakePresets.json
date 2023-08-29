@@ -1,0 +1,40 @@
+{
+    "version": 4,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 23,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "default",
+            "displayName": "default configure preset",
+            "binaryDir": "${sourceDir}/build/${presetName}/",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CXX_STANDARD": "14",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_EXTENSIONS": "OFF"
+            }
+        },
+        {
+            "name": "clang",
+            "displayName": "clang configure preset",
+            "inherits": "default",
+            "description": "Using compilers: C = /usr/bin/clang, CXX = /usr/bin/clang++",
+            "cacheVariables": {
+                "CMAKE_CXX_FLAGS": "-Werror -Wall -Wextra -Wpedantic -Wconversion -fno-exceptions",
+                "CMAKE_C_COMPILER": "/usr/bin/clang",
+                "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "clang",
+            "displayName": "clang build preset",
+            "configurePreset": "clang"
+        }
+    ]
+}
