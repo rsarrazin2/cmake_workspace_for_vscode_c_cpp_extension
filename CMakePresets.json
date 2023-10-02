@@ -36,5 +36,12 @@
             "displayName": "clang build preset",
             "configurePreset": "clang"
         }
+    ],
+    "testPresets": [
+        {
+            "name": "clang",
+            "displayName": "clang test preset",
+            "configurePreset": "clang"
+        }
     ]
 }
